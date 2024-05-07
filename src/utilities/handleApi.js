@@ -23,3 +23,15 @@ export const postApi = async (URL, params) => {
     })
   return url
 }
+
+export const putApi = async (URL, params) => {
+  const url = await axios
+    .put(URL, params)
+    .then((response) => {
+      return response.data
+    })
+    .catch((e) => {
+      return e.response
+    })
+  return url
+}
