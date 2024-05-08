@@ -1,10 +1,12 @@
 import { Card } from 'antd'
 import React from 'react'
+import { Link } from 'react-router-dom'
 import AntdButton from '../button/AntdButton'
 import AntdRate from '../rate/AntdRate'
 import './styles.css'
+
 const AntdCard = (props) => {
-  const { url, title, category, price, isOpen, rating } = props
+  const { url, id, title, category, price, isOpen, rating } = props
   return (
     <Card
       style={{ width: 320 }}
@@ -27,11 +29,13 @@ const AntdCard = (props) => {
           {isOpen ? 'OPEN NOW' : 'CLOSED'}
         </p>
       </div>
-      <AntdButton
-        title='Learn More'
-        isBlock='true'
-        type='primary'
-      />
+      <Link to={`/detail/${id}`}>
+        <AntdButton
+          title='Learn More'
+          isBlock='true'
+          type='primary'
+        />
+      </Link>
     </Card>
   )
 }

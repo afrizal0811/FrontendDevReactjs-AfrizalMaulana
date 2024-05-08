@@ -19,9 +19,7 @@ const Main = () => {
 
   const isOpenNotNull = isOpenFilter !== null
   const priceNotNull = priceFilter !== null
-  console.log('priceFilter :', priceFilter)
   const categoryNotNull = categoryFilter !== null
-  console.log('categoryFilter :', categoryFilter)
   const hasFilter = isOpenNotNull || priceNotNull || categoryNotNull
 
   const FilteredData = data.filter(
@@ -34,8 +32,8 @@ const Main = () => {
   const newData = hasFilter ? FilteredData : data
 
   return (
-    <div>
-      <div>
+    <div className='main-container'>
+      <div className='main-header'>
         <h1>Restaurant</h1>
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt ea
@@ -52,12 +50,13 @@ const Main = () => {
         />
       </div>
 
-      <div className='main-container'>
+      <div className='cards'>
         {newData.map((item) => {
           return (
-            <div className='main-content'>
+            <div className='card'>
               <AntdCard
                 url={item.image}
+                id={item.id}
                 title={item.name}
                 category={item.category}
                 price={item.price}

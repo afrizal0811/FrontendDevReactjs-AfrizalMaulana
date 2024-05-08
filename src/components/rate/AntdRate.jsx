@@ -7,6 +7,7 @@ const AntdRate = (props) => {
     <Rate
       disabled
       defaultValue={number}
+      style={{ 'padding-top': '0.5rem' }}
     />
   )
 }

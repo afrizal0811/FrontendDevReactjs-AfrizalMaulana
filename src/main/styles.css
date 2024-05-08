@@ -1,10 +1,18 @@
 .main-container {
+  padding: 2rem;
+}
+
+.main-header {
+  padding: 0 2.6rem;
+}
+
+.cards {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
 }
 
-.main-content {
+.card {
   padding: 1rem;
 }
