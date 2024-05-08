@@ -1,10 +1,17 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import AntdCard from '../components/card/AntdCard'
 import Header from '../header/Header'
+import { getApi } from '../utilities/handleApi'
 import './styles.css'
-
-const Main = (props) => {
-  const { data } = props
+const Main = () => {
+  const [data, setData] = useState([])
+  useEffect(() => {
+    const fetchData = async () => {
+      const url = process.env.REACT_APP_API_URL
+      setData(await getApi(url))
+    }
+    fetchData()
+  }, [])
   const [isOpenFilter, setIsOpenFilter] = useState(null)
   const [priceFilter, setPriceFilter] = useState(null)
   const [categoryFilter, setCategoryFilter] = useState(null)
