@@ -5,7 +5,10 @@ import AntdDivider from '../components/divider/AntdDivider'
 import AntdDropdown from '../components/dropdown/AntdDropdown'
 import './styles.css'
 
-const Header = () => {
+const Header = (props) => {
+  const { data } = props
+  const price = data.map((item) => item.price)
+  const category = data.map((item) => item.category)
   return (
     <div>
       <AntdDivider />
@@ -13,8 +16,14 @@ const Header = () => {
         <div className='header-filter'>
           <p>Filter By: </p>
           <AntdCheckbox title='Open Now' />
-          <AntdDropdown title='Price' />
-          <AntdDropdown title='Category' />
+          <AntdDropdown
+            title='Price'
+            datas={price}
+          />
+          <AntdDropdown
+            title='Category'
+            datas={category}
+          />
         </div>
         <AntDButton title='Clear All' />
       </div>

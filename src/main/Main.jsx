@@ -1,19 +1,10 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import AntdCard from '../components/card/AntdCard'
-import { getApi } from '../utilities/handleApi'
-import './styles.css'
 import Header from '../header/Header'
+import './styles.css'
 
-const Main = () => {
-  const [data, setData] = useState([])
-  useEffect(() => {
-    const fetchData = async () => {
-      const url = process.env.REACT_APP_API_URL
-      setData(await getApi(url))
-    }
-    fetchData()
-  }, [])
-
+const Main = (props) => {
+  const { data } = props
   return (
     <div>
       <div>
@@ -23,7 +14,7 @@ const Main = () => {
           officia voluptate, sunt facilis sed. Architecto pariatur quam
           consequuntur expedita?
         </p>
-        <Header />
+        <Header data={data} />
       </div>
 
       <div className='main-container'>
