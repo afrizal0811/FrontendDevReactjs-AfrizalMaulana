@@ -1,10 +1,11 @@
 // import EditApi from './components/edit_api/EditApi'
-import MainPage from './main_page/MainPage'
+import Main from './main/Main'
+import './App.css'
 function App() {
   return (
     <div className='App'>
       {/* <EditApi /> */}
-      <MainPage />
+      <Main />
     </div>
   )
 }

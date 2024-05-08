@@ -1,5 +1,6 @@
-import { Button, Card } from 'antd'
+import { Card } from 'antd'
 import React from 'react'
+import AntDButton from '../button/AntDButton'
 import AntdRate from '../rate/AntdRate'
 import './styles.css'
 const AntdCard = (props) => {
@@ -17,10 +18,7 @@ const AntdCard = (props) => {
       <h4>{title}</h4>
       <AntdRate number={rating} />
       <div className='card-content'>
-        <div>
-          <p>{category}</p>
-          <p>{price}</p>
-        </div>
+        <p>{`${category} - ${price}`}</p>
         <p>
           <span
             className='dot'
@@ -29,12 +27,11 @@ const AntdCard = (props) => {
           {isOpen ? 'OPEN NOW' : 'CLOSED'}
         </p>
       </div>
-      <Button
+      <AntDButton
+        title='Learn More'
+        isBlock='true'
         type='primary'
-        block
-      >
-        Learn More
-      </Button>
+      />
     </Card>
   )
 }
