@@ -1,10 +1,28 @@
-import React from 'react'
+import React, { useState } from 'react'
 import AntdCard from '../components/card/AntdCard'
 import Header from '../header/Header'
 import './styles.css'
 
 const Main = (props) => {
   const { data } = props
+  const [isOpenFilter, setIsOpenFilter] = useState(null)
+  const [priceFilter, setPriceFilter] = useState(null)
+  const [categoryFilter, setCategoryFilter] = useState(null)
+
+  const isOpenNotNull = isOpenFilter !== null
+  const priceNotNull = priceFilter !== null
+  const categoryNotNull = categoryFilter !== null
+  const hasFilter = isOpenNotNull || priceNotNull || categoryNotNull
+
+  const FilteredData = data.filter(
+    (item) =>
+      (isOpenNotNull ? item.is_open === isOpenFilter : []) &&
+      (priceNotNull ? item.price === priceFilter : []) &&
+      (categoryNotNull ? item.category === categoryFilter : [])
+  )
+
+  const newData = hasFilter ? FilteredData : data
+
   return (
     <div>
       <div>
@@ -14,11 +32,16 @@ const Main = (props) => {
           officia voluptate, sunt facilis sed. Architecto pariatur quam
           consequuntur expedita?
         </p>
-        <Header data={data} />
+        <Header
+          data={data}
+          setIsOpenFilter={setIsOpenFilter}
+          setPriceFilter={setPriceFilter}
+          setCategoryFilter={setCategoryFilter}
+        />
       </div>
 
       <div className='main-container'>
-        {data.map((item) => {
+        {newData.map((item) => {
           return (
             <div className='main-content'>
               <AntdCard
