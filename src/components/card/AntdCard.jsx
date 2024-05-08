@@ -1,6 +1,6 @@
 import { Card } from 'antd'
 import React from 'react'
-import AntDButton from '../button/AntDButton'
+import AntdButton from '../button/AntdButton'
 import AntdRate from '../rate/AntdRate'
 import './styles.css'
 const AntdCard = (props) => {
@@ -27,7 +27,7 @@ const AntdCard = (props) => {
           {isOpen ? 'OPEN NOW' : 'CLOSED'}
         </p>
       </div>
-      <AntDButton
+      <AntdButton
         title='Learn More'
         isBlock='true'
         type='primary'

@@ -8,6 +8,7 @@ const Main = (props) => {
   const [isOpenFilter, setIsOpenFilter] = useState(null)
   const [priceFilter, setPriceFilter] = useState(null)
   const [categoryFilter, setCategoryFilter] = useState(null)
+  const [isClear, setIsClear] = useState(false)
 
   const isOpenNotNull = isOpenFilter !== null
   const priceNotNull = priceFilter !== null
@@ -37,6 +38,8 @@ const Main = (props) => {
           setIsOpenFilter={setIsOpenFilter}
           setPriceFilter={setPriceFilter}
           setCategoryFilter={setCategoryFilter}
+          isClear={isClear}
+          setIsClear={setIsClear}
         />
       </div>
 

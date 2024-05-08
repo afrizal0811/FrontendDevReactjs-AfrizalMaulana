@@ -1,12 +1,13 @@
 import React from 'react'
-import AntDButton from '../components/button/AntDButton'
+import AntdButton from '../components/button/AntdButton'
 import AntdCheckbox from '../components/checkbox/AntdCheckbox'
 import AntdDivider from '../components/divider/AntdDivider'
 import AntdSelect from '../components/select/AntdSelect'
 import './styles.css'
 
 const Header = (props) => {
-  const { data, setIsOpenFilter, setPriceFilter, setCategoryFilter } = props
+  const { data } = props
+
   const price = data.map((item) => item.price)
   const category = data.map((item) => item.category)
   return (
@@ -17,20 +18,23 @@ const Header = (props) => {
           <p>Filter By: </p>
           <AntdCheckbox
             title='Open Now'
-            setIsOpenFilter={setIsOpenFilter}
+            {...props}
           />
           <AntdSelect
             title='Price'
             datas={price}
-            setPriceFilter={setPriceFilter}
+            {...props}
           />
           <AntdSelect
             title='Category'
             datas={category}
-            setCategoryFilter={setCategoryFilter}
+            {...props}
           />
         </div>
-        <AntDButton title='Clear All' />
+        <AntdButton
+          title='Clear All'
+          {...props}
+        />
       </div>
       <AntdDivider />
     </div>
