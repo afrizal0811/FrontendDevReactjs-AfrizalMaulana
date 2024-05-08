@@ -6,10 +6,18 @@ import AntdSelect from '../components/select/AntdSelect'
 import './styles.css'
 
 const Header = (props) => {
-  const { data } = props
+  const {
+    data,
+    setPriceFilter,
+    setCategoryFilter,
+    setIsOpenFilter,
+    isClear,
+    setIsClear,
+  } = props
 
   const price = data.map((item) => item.price)
   const category = data.map((item) => item.category)
+
   return (
     <div>
       <AntdDivider />
@@ -18,22 +26,28 @@ const Header = (props) => {
           <p>Filter By: </p>
           <AntdCheckbox
             title='Open Now'
-            {...props}
+            setIsOpenFilter={setIsOpenFilter}
+            isClear={isClear}
+            setIsClear={setIsClear}
           />
           <AntdSelect
             title='Price'
             datas={price}
-            {...props}
+            setFilter={setPriceFilter}
+            isClear={isClear}
+            setIsClear={setIsClear}
           />
           <AntdSelect
             title='Category'
             datas={category}
-            {...props}
+            setFilter={setCategoryFilter}
+            isClear={isClear}
+            setIsClear={setIsClear}
           />
         </div>
         <AntdButton
           title='Clear All'
-          {...props}
+          handleClick={() => setIsClear(true)}
         />
       </div>
       <AntdDivider />

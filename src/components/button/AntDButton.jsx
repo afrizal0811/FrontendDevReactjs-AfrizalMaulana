@@ -2,13 +2,13 @@ import { Button } from 'antd'
 import React from 'react'
 
 const AntdButton = (props) => {
-  const { title, isBlock, type, setIsClear } = props
+  const { title, isBlock, type, handleClick } = props || null
 
   return (
     <Button
       type={type}
       block={isBlock}
-      onClick={() => setIsClear(true)}
+      onClick={handleClick}
     >
       {title}
     </Button>

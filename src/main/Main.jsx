@@ -19,7 +19,9 @@ const Main = () => {
 
   const isOpenNotNull = isOpenFilter !== null
   const priceNotNull = priceFilter !== null
+  console.log('priceFilter :', priceFilter)
   const categoryNotNull = categoryFilter !== null
+  console.log('categoryFilter :', categoryFilter)
   const hasFilter = isOpenNotNull || priceNotNull || categoryNotNull
 
   const FilteredData = data.filter(

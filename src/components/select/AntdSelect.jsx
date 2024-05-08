@@ -3,14 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { itemConvert } from './help'
 
 const AntdSelect = (props) => {
-  const {
-    title,
-    datas,
-    setPriceFilter,
-    setCategoryFilter,
-    isClear,
-    setIsClear,
-  } = props
+  const { title, datas, setFilter, isClear, setIsClear } = props || null
 
   const [items, setItems] = useState([])
   const [option, setOption] = useState('')
@@ -20,17 +13,15 @@ const AntdSelect = (props) => {
     setItems(itemConvert(datas))
     if (isClear) {
       setIsSelected(false)
-      setPriceFilter(null)
-      setCategoryFilter(null)
+      setFilter(null)
     }
     setIsClear(false)
-  }, [datas, isClear, setIsClear, setPriceFilter, setCategoryFilter])
+  }, [datas, isClear, setIsClear, setFilter])
 
   const handleChange = (value) => {
     setIsSelected(value)
     setOption(value)
-    if (title === 'Price') setPriceFilter(value)
-    if (title === 'Category') setCategoryFilter(value)
+    setFilter(value)
   }
 
   return (
