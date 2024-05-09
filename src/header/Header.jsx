@@ -9,11 +9,11 @@ import './styles.css'
 const Header = (props) => {
   const {
     data,
-    setPriceFilter,
-    setCategoryFilter,
-    setIsOpenFilter,
     isClear,
+    setCategoryFilter,
     setIsClear,
+    setIsOpenFilter,
+    setPriceFilter,
   } = props
 
   const price = data.map((item) => item.price)

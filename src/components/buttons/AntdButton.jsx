@@ -3,27 +3,27 @@ import React from 'react'
 
 const AntdButton = (props) => {
   const {
-    title,
-    isBlock,
-    type,
-    handleClick,
+    className,
     danger,
-    shape,
+    handleClick,
     icon,
     iconPosition,
-    className,
+    isBlock,
+    shape,
+    title,
+    type,
   } = props || null
 
   return (
     <Button
-      className={className}
-      type={type}
       block={isBlock}
-      onClick={handleClick}
+      className={className}
       danger={danger}
-      shape={shape}
       icon={icon}
       iconPosition={iconPosition}
+      onClick={handleClick}
+      shape={shape}
+      type={type}
     >
       {title}
     </Button>

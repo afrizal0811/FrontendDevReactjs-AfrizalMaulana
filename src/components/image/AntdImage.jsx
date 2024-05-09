@@ -6,9 +6,9 @@ const AntdImage = (props) => {
 
   return (
     <Image
-      width={width}
-      src={src}
       preview={false}
+      src={src}
+      width={width}
     />
   )
 }

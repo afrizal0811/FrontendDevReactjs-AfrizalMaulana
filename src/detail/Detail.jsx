@@ -38,11 +38,11 @@ const Detail = () => {
   const renderBackButton = (
     <Link to='/'>
       <AntdButton
+        className='back-button'
+        icon={<LeftOutlined />}
+        shape='round'
         title='Back'
         type='primary'
-        shape='round'
-        icon={<LeftOutlined />}
-        className='back-button'
       />
     </Link>
   )
@@ -74,8 +74,8 @@ const Detail = () => {
     >
       <div className='review-content'>
         <AntdAvatar
-          src={avatarReviewer}
           className='review-avatar'
+          src={avatarReviewer}
         />
         <div>
           <h4>{reviewData.name}</h4>

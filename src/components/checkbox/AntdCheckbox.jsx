@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 import './styles.css'
 
 const AntdCheckbox = (props) => {
-  const { title, setIsOpenFilter, isClear, setIsClear } = props
+  const { isClear, setIsClear, setIsOpenFilter, title } = props
   const [isSelected, setIsSelected] = useState(false)
 
   useEffect(() => {
@@ -20,12 +20,12 @@ const AntdCheckbox = (props) => {
     setIsOpenFilter(value)
     setIsSelected(!isSelected)
   }
-  
+
   return (
     <Checkbox
+      checked={isSelected}
       className='checkbox'
       onChange={(e) => handleClick(e)}
-      checked={isSelected}
     >
       <span>{title}</span>
     </Checkbox>

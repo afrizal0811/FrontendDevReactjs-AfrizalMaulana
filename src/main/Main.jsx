@@ -48,12 +48,12 @@ const Main = () => {
   const renderLoading = <AntdSpin size='large' />
   const renderLoadButton = (
     <AntdButton
-      title='Load More'
-      handleClick={() => setPageNumber(pageNumber + 10)}
-      type='primary'
       danger={true}
-      isBlock={true}
+      handleClick={() => setPageNumber(pageNumber + 10)}
       icon={<SyncOutlined spin />}
+      isBlock={true}
+      title='Load More'
+      type='primary'
     />
   )
 
@@ -64,10 +64,10 @@ const Main = () => {
           return (
             <div className='card'>
               <AntdCard
-                url={item.image}
                 id={item.id}
-                title={item.name}
                 isCover={true}
+                title={item.name}
+                url={item.image}
                 width={320}
               >
                 <h4>{item.name}</h4>
@@ -86,11 +86,11 @@ const Main = () => {
                 </div>
                 <Link to={`/detail/${item.id}`}>
                   <AntdButton
-                    title='Learn More'
-                    isBlock='true'
-                    type='primary'
                     icon={<RightOutlined />}
                     iconPosition='end'
+                    isBlock='true'
+                    title='Learn More'
+                    type='primary'
                   />
                 </Link>
               </AntdCard>
@@ -113,11 +113,11 @@ const Main = () => {
         </p>
         <Header
           data={data}
+          isClear={isClear}
+          setCategoryFilter={setCategoryFilter}
+          setIsClear={setIsClear}
           setIsOpenFilter={setIsOpenFilter}
           setPriceFilter={setPriceFilter}
-          setCategoryFilter={setCategoryFilter}
-          isClear={isClear}
-          setIsClear={setIsClear}
         />
       </div>
       {isShowData ? renderCards : renderLoading}

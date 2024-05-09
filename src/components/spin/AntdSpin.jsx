@@ -7,10 +7,10 @@ const AntdSpin = (props) => {
     <Spin
       size={size}
       style={{
+        'align-items': 'center',
+        'justify-content': 'center',
         display: 'flex',
         height: '100vh',
-        'justify-content': 'center',
-        'align-items': 'center',
       }}
     />
   )

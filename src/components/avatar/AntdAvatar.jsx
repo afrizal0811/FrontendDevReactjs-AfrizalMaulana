@@ -2,7 +2,7 @@ import { Avatar } from 'antd'
 import React from 'react'
 
 const AntdAvatar = (props) => {
-  const { src, className } = props
+  const { className, src } = props
   return (
     <Avatar
       className={className}
