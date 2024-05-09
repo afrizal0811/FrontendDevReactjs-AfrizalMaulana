@@ -1,6 +1,5 @@
 import { Card } from 'antd'
 import React from 'react'
-import './styles.css'
 
 const AntdCard = (props) => {
   const { url, title, isCover, children, className, width } = props

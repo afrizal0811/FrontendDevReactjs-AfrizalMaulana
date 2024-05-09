@@ -1,6 +1,7 @@
 import { Checkbox } from 'antd'
 import React, { useEffect, useState } from 'react'
 import './styles.css'
+
 const AntdCheckbox = (props) => {
   const { title, setIsOpenFilter, isClear, setIsClear } = props
   const [isSelected, setIsSelected] = useState(false)
