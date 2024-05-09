@@ -92,7 +92,7 @@ const Main = () => {
               </AntdCard>
             </div>
           )
-        }
+        } else return null
       })}
       {isShowLoad && renderLoadButton}
     </div>
