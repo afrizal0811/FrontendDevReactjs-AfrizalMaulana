@@ -3,7 +3,7 @@ import React from 'react'
 import './styles.css'
 
 const AntdCard = (props) => {
-  const { url, title, isCover, children } = props
+  const { url, title, isCover, children, className, width } = props
 
   const cardCover = (
     <img
@@ -15,7 +15,8 @@ const AntdCard = (props) => {
   const renderCover = isCover && cardCover
   return (
     <Card
-      style={{ width: 320 }}
+      className={className}
+      style={{ width: width }}
       cover={renderCover}
     >
       {children}

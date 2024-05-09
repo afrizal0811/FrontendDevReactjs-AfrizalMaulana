@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import AntdAvatar from '../components/avatar/AntdAvatar'
+import AntdCard from '../components/card/AntdCard'
 import AntdDivider from '../components/divider/AntdDivider'
 import AntdImage from '../components/image/AntdImage'
 import AntdRate from '../components/rate/AntdRate'
 import { getApi } from '../utilities/handleApi'
 import { isEmpty } from '../utilities/isEmpty'
-
+import './styles.css'
 const Detail = () => {
   const { id } = useParams()
   const [data, setData] = useState({})
@@ -43,15 +44,21 @@ const Detail = () => {
       width={100}
     />
   )
-  
-  const renderReview = (
-    <div>
-      <AntdAvatar src={avatarReviewer} />
 
-      <h4>{reviewData.name}</h4>
-      <AntdRate number={data.rating} />
+  const renderReview = (
+    <AntdCard
+      className='review-container'
+      width={400}
+    >
+      <div className='review-content'>
+        <AntdAvatar src={avatarReviewer} className='review-avatar'/>
+        <div>
+          <h4>{reviewData.name}</h4>
+          <AntdRate number={data.rating} />
+        </div>
+      </div>
       <p>{reviewData.text}</p>
-    </div>
+    </AntdCard>
   )
   return (
     <div>

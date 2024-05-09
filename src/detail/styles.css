@@ -1,0 +1,14 @@
+.review-container {
+  border: solid 1.5px #808080;
+}
+
+.review-content {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+
+.review-avatar {
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+}

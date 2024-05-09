@@ -50,6 +50,7 @@ const Main = () => {
               id={item.id}
               title={item.name}
               isCover={true}
+              width={320}
             >
               <h4>{item.name}</h4>
               <AntdRate number={item.rating} />
