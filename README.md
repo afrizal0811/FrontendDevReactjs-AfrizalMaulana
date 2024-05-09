@@ -9,6 +9,8 @@ Afrizal Maulana Muhammad
 * ReactJs Version : 18.3.1
 * Node.js Version : 18.17.1
 * Packages Manager : NPM
+* Website Hosting : https://sekawan-frontend-afrizal.vercel.app/ (Vercel)
+* Github Repository : https://github.com/afrizal0811/FrontendDevReactjs-AfrizalMaulana
 
 ## Available Scripts
 
