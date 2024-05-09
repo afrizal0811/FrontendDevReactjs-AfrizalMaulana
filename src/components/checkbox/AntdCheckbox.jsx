@@ -19,6 +19,7 @@ const AntdCheckbox = (props) => {
     setIsOpenFilter(value)
     setIsSelected(!isSelected)
   }
+  
   return (
     <Checkbox
       className='checkbox'

@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
+import AntdButton from '../components/button/AntdButton'
 import AntdCard from '../components/card/AntdCard'
+import AntdRate from '../components/rate/AntdRate'
 import Header from '../header/Header'
 import { getApi } from '../utilities/handleApi'
 import { isEmpty } from '../utilities/isEmpty'
@@ -36,7 +39,7 @@ const Main = () => {
   )
 
   const newData = hasFilter ? FilteredData : data
-  
+
   const renderCards = (
     <div className='cards'>
       {newData.map((item) => {
@@ -46,11 +49,30 @@ const Main = () => {
               url={item.image}
               id={item.id}
               title={item.name}
-              category={item.category}
-              price={item.price}
-              rating={item.rating}
-              isOpen={item.is_open}
-            />
+              isCover={true}
+            >
+              <h4>{item.name}</h4>
+              <AntdRate number={item.rating} />
+              <div className='card-content'>
+                <p>{`${item.category} - ${item.price}`}</p>
+                <p>
+                  <span
+                    className='dot'
+                    style={{
+                      'background-color': item.is_open ? 'lime' : 'red',
+                    }}
+                  />
+                  {item.is_open ? 'OPEN NOW' : 'CLOSED'}
+                </p>
+              </div>
+              <Link to={`/detail/${item.id}`}>
+                <AntdButton
+                  title='Learn More'
+                  isBlock='true'
+                  type='primary'
+                />
+              </Link>
+            </AntdCard>
           </div>
         )
       })}
