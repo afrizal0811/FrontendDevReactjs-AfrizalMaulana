@@ -8,6 +8,7 @@ import AntdRate from '../components/rate/AntdRate'
 import { getApi } from '../utilities/handleApi'
 import { isEmpty } from '../utilities/isEmpty'
 import './styles.css'
+
 const Detail = () => {
   const { id } = useParams()
   const [data, setData] = useState({})
@@ -28,13 +29,15 @@ const Detail = () => {
   const reviewData = isShowReview && review[0]
 
   const renderData = (
-    <div>
-      <AntdImage
-        src={data.image}
-        width={400}
-      />
-      <h1>{data.name}</h1>
-      <AntdRate number={data.rating} />
+    <div className='detail-container'>
+      <div className='detail-content'>
+        <AntdImage
+          src={data.image}
+          width={400}
+        />
+        <h1>{data.name}</h1>
+        <AntdRate number={data.rating} />
+      </div>
     </div>
   )
 
@@ -51,7 +54,10 @@ const Detail = () => {
       width={400}
     >
       <div className='review-content'>
-        <AntdAvatar src={avatarReviewer} className='review-avatar'/>
+        <AntdAvatar
+          src={avatarReviewer}
+          className='review-avatar'
+        />
         <div>
           <h4>{reviewData.name}</h4>
           <AntdRate number={data.rating} />
@@ -60,11 +66,14 @@ const Detail = () => {
       <p>{reviewData.text}</p>
     </AntdCard>
   )
+
   return (
-    <div>
-      {isShowData && renderData}
-      <AntdDivider text='Review' />
-      {isShowReview && renderReview}
+    <div className='detail-container'>
+      <div className='detail-content'>
+        {isShowData && renderData}
+        <AntdDivider text='Review' />
+        <div className='review'>{isShowReview && renderReview}</div>
+      </div>
     </div>
   )
 }

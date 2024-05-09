@@ -1,3 +1,20 @@
+.detail-container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 1rem;
+}
+.detail-content {
+  justify-content: center;
+  align-self: center;
+}
+
+.review {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  align-self: center;
+}
 .review-container {
   border: solid 1.5px #808080;
 }
@@ -9,6 +26,6 @@
 }
 
 .review-avatar {
-    margin-right: 1rem;
-    margin-bottom: 1rem;
+  margin-right: 1rem;
+  margin-bottom: 1rem;
 }
