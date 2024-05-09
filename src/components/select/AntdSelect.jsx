@@ -27,7 +27,7 @@ const AntdSelect = (props) => {
   return (
     <Select
       style={{
-        width: 120,
+        width: 110,
       }}
       onChange={handleChange}
       options={items}

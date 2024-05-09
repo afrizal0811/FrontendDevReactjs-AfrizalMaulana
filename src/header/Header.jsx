@@ -22,29 +22,31 @@ const Header = (props) => {
     <div>
       <AntdDivider />
       <div className='header-container'>
-        <div className='header-filter'>
+        <diV className='header-content'>
           <p>Filter By: </p>
-          <AntdCheckbox
-            title='Open Now'
-            setIsOpenFilter={setIsOpenFilter}
-            isClear={isClear}
-            setIsClear={setIsClear}
-          />
-          <AntdSelect
-            title='Price'
-            datas={price}
-            setFilter={setPriceFilter}
-            isClear={isClear}
-            setIsClear={setIsClear}
-          />
-          <AntdSelect
-            title='Category'
-            datas={category}
-            setFilter={setCategoryFilter}
-            isClear={isClear}
-            setIsClear={setIsClear}
-          />
-        </div>
+          <div className='header-filter'>
+            <AntdCheckbox
+              title='Open Now'
+              setIsOpenFilter={setIsOpenFilter}
+              isClear={isClear}
+              setIsClear={setIsClear}
+            />
+            <AntdSelect
+              title='Price'
+              datas={price}
+              setFilter={setPriceFilter}
+              isClear={isClear}
+              setIsClear={setIsClear}
+            />
+            <AntdSelect
+              title='Category'
+              datas={category}
+              setFilter={setCategoryFilter}
+              isClear={isClear}
+              setIsClear={setIsClear}
+            />
+          </div>
+        </diV>
         <AntdButton
           title='Clear All'
           handleClick={() => setIsClear(true)}

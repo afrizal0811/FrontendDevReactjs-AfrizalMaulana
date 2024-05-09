@@ -4,9 +4,43 @@
   margin: 1rem;
 }
 
-.header-filter {
+.header-content {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  width: 35%;
+  width: 32%;
+}
+
+.header-filter {
+  display: flex;
+  gap: 1rem;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .header-content {
+    width: 100%;
+    justify-content: start;
+  }
+
+  .header-filter {
+    padding-left: 1rem;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .header-container {
+    margin: 0;
+    flex-direction: column;
+  }
+
+  .header-content {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+  .header-filter {
+    gap: 0.5rem;
+    padding-bottom: 0.5rem;
+    justify-content: space-between;
+  }
 }
