@@ -2,7 +2,9 @@ import React, { useEffect, useState } from 'react'
 import AntdCard from '../components/card/AntdCard'
 import Header from '../header/Header'
 import { getApi } from '../utilities/handleApi'
+import { isEmpty } from '../utilities/isEmpty'
 import './styles.css'
+
 const Main = () => {
   const [data, setData] = useState([])
   useEffect(() => {
@@ -11,12 +13,16 @@ const Main = () => {
       setData(await getApi(url))
     }
     fetchData()
+    setIsLoading(false)
   }, [])
+
+  const [isLoading, setIsLoading] = useState(true)
   const [isOpenFilter, setIsOpenFilter] = useState(null)
   const [priceFilter, setPriceFilter] = useState(null)
   const [categoryFilter, setCategoryFilter] = useState(null)
   const [isClear, setIsClear] = useState(false)
 
+  const isShow = !isEmpty(data) && !isLoading
   const isOpenNotNull = isOpenFilter !== null
   const priceNotNull = priceFilter !== null
   const categoryNotNull = categoryFilter !== null
@@ -30,7 +36,26 @@ const Main = () => {
   )
 
   const newData = hasFilter ? FilteredData : data
-
+  
+  const renderCards = (
+    <div className='cards'>
+      {newData.map((item) => {
+        return (
+          <div className='card'>
+            <AntdCard
+              url={item.image}
+              id={item.id}
+              title={item.name}
+              category={item.category}
+              price={item.price}
+              rating={item.rating}
+              isOpen={item.is_open}
+            />
+          </div>
+        )
+      })}
+    </div>
+  )
   return (
     <div className='main-container'>
       <div className='main-header'>
@@ -49,24 +74,7 @@ const Main = () => {
           setIsClear={setIsClear}
         />
       </div>
-
-      <div className='cards'>
-        {newData.map((item) => {
-          return (
-            <div className='card'>
-              <AntdCard
-                url={item.image}
-                id={item.id}
-                title={item.name}
-                category={item.category}
-                price={item.price}
-                rating={item.rating}
-                isOpen={item.is_open}
-              />
-            </div>
-          )
-        })}
-      </div>
+      {isShow && renderCards}
     </div>
   )
 }

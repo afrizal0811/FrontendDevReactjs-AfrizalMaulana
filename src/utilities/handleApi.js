@@ -12,18 +12,6 @@ export const getApi = async (URL) => {
   return url
 }
 
-export const postApi = async (URL, params) => {
-  const url = await axios
-    .post(URL, params)
-    .then((response) => {
-      return response.data
-    })
-    .catch((e) => {
-      return e.response
-    })
-  return url
-}
-
 export const putApi = async (URL, params) => {
   const url = await axios
     .put(URL, params)

@@ -1,7 +1,8 @@
 import { Divider } from 'antd'
 import React from 'react'
-const AntdDivider = () => {
-  return <Divider />
+const AntdDivider = (props) => {
+  const { text } = props
+  return <Divider> {text}</Divider>
 }
 
 export default AntdDivider
