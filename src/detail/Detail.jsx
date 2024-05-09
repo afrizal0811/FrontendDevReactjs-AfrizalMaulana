@@ -10,6 +10,7 @@ import AntdRate from '../components/rate/AntdRate'
 import AntdSpin from '../components/spin/AntdSpin'
 import { getApi } from '../utilities/handleApi'
 import { isEmpty } from '../utilities/isEmpty'
+import { multipleReview } from './help'
 
 import './styles.css'
 
@@ -34,6 +35,18 @@ const Detail = () => {
 
   const renderLoading = <AntdSpin size='large' />
 
+  const renderBackButton = (
+    <Link to='/'>
+      <AntdButton
+        title='Back'
+        type='primary'
+        shape='round'
+        icon={<LeftOutlined />}
+        className='back-button'
+      />
+    </Link>
+  )
+
   const renderData = (
     <div className='detail-container'>
       <div className='detail-content'>
@@ -54,7 +67,7 @@ const Detail = () => {
     />
   )
 
-  const renderReviewer = (
+  const renderReviewer = multipleReview(
     <AntdCard
       className='review-container'
       width={400}
@@ -75,19 +88,11 @@ const Detail = () => {
 
   const renderDetail = (
     <div className='detail-container'>
-      <Link to='/'>
-        <AntdButton
-          title='Back'
-          type='primary'
-          shape='round'
-          icon={<LeftOutlined />}
-          className='back-button'
-        />
-      </Link>
+      {renderBackButton}
       <div className='detail-content'>
         {renderData}
         <AntdDivider text='Review' />
-        <div className='review'>{renderReviewer}</div>
+        <div className='review'>{renderReviewer.map((data) => data)}</div>
       </div>
     </div>
   )
