@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import AntdButton from '../components/button/AntdButton'
+import AntdButton from '../components/buttons/AntdButton'
 import AntdCard from '../components/card/AntdCard'
 import AntdRate from '../components/rate/AntdRate'
 import AntdSpin from '../components/spin/AntdSpin'

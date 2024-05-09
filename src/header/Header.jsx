@@ -1,5 +1,5 @@
 import React from 'react'
-import AntdButton from '../components/button/AntdButton'
+import AntdButton from '../components/buttons/AntdButton'
 import AntdCheckbox from '../components/checkbox/AntdCheckbox'
 import AntdDivider from '../components/divider/AntdDivider'
 import AntdSelect from '../components/select/AntdSelect'
