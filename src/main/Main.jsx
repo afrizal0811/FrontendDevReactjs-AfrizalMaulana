@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import AntdButton from '../components/button/AntdButton'
 import AntdCard from '../components/card/AntdCard'
 import AntdRate from '../components/rate/AntdRate'
+import AntdSpin from '../components/spin/AntdSpin'
 import Header from '../header/Header'
 import { getApi } from '../utilities/handleApi'
 import { isEmpty } from '../utilities/isEmpty'
@@ -10,6 +11,12 @@ import './styles.css'
 
 const Main = () => {
   const [data, setData] = useState([])
+  const [isLoading, setIsLoading] = useState(true)
+  const [isOpenFilter, setIsOpenFilter] = useState(null)
+  const [priceFilter, setPriceFilter] = useState(null)
+  const [categoryFilter, setCategoryFilter] = useState(null)
+  const [isClear, setIsClear] = useState(false)
+
   useEffect(() => {
     const fetchData = async () => {
       const url = process.env.REACT_APP_API_URL
@@ -17,13 +24,7 @@ const Main = () => {
     }
     fetchData()
     setIsLoading(false)
-  }, [])
-
-  const [isLoading, setIsLoading] = useState(true)
-  const [isOpenFilter, setIsOpenFilter] = useState(null)
-  const [priceFilter, setPriceFilter] = useState(null)
-  const [categoryFilter, setCategoryFilter] = useState(null)
-  const [isClear, setIsClear] = useState(false)
+  }, [isOpenFilter])
 
   const isShow = !isEmpty(data) && !isLoading
   const isOpenNotNull = isOpenFilter !== null
@@ -40,6 +41,8 @@ const Main = () => {
 
   const newData = hasFilter ? FilteredData : data
 
+  const renderLoading = <AntdSpin size='large' />
+  
   const renderCards = (
     <div className='cards'>
       {newData.map((item) => {
@@ -79,6 +82,7 @@ const Main = () => {
       })}
     </div>
   )
+
   return (
     <div className='main-container'>
       <div className='main-header'>
@@ -97,7 +101,7 @@ const Main = () => {
           setIsClear={setIsClear}
         />
       </div>
-      {isShow && renderCards}
+      {isShow ? renderCards : renderLoading}
     </div>
   )
 }

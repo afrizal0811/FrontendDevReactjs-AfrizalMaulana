@@ -5,6 +5,7 @@ import AntdCard from '../components/card/AntdCard'
 import AntdDivider from '../components/divider/AntdDivider'
 import AntdImage from '../components/image/AntdImage'
 import AntdRate from '../components/rate/AntdRate'
+import AntdSpin from '../components/spin/AntdSpin'
 import { getApi } from '../utilities/handleApi'
 import { isEmpty } from '../utilities/isEmpty'
 import './styles.css'
@@ -28,6 +29,8 @@ const Detail = () => {
   const isShowReview = isShowData && !isEmpty(review[0]) && !isLoading
   const reviewData = isShowReview && review[0]
 
+  const renderLoading = <AntdSpin size='large' />
+
   const renderData = (
     <div className='detail-container'>
       <div className='detail-content'>
@@ -48,7 +51,7 @@ const Detail = () => {
     />
   )
 
-  const renderReview = (
+  const renderReviewer = (
     <AntdCard
       className='review-container'
       width={400}
@@ -67,15 +70,17 @@ const Detail = () => {
     </AntdCard>
   )
 
-  return (
+  const renderDetail = (
     <div className='detail-container'>
       <div className='detail-content'>
-        {isShowData && renderData}
+        {renderData}
         <AntdDivider text='Review' />
-        <div className='review'>{isShowReview && renderReview}</div>
+        <div className='review'>{renderReviewer}</div>
       </div>
     </div>
   )
+
+  return <div>{isShowData && isShowReview ? renderDetail : renderLoading}</div>
 }
 
 export default Detail
