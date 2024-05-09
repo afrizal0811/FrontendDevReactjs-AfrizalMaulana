@@ -1,3 +1,4 @@
+import { DeleteOutlined } from '@ant-design/icons'
 import React from 'react'
 import AntdButton from '../components/buttons/AntdButton'
 import AntdCheckbox from '../components/checkbox/AntdCheckbox'
@@ -48,8 +49,9 @@ const Header = (props) => {
           </div>
         </diV>
         <AntdButton
-          title='Clear All'
+          title='Clear Filter'
           handleClick={() => setIsClear(true)}
+          icon={<DeleteOutlined />}
         />
       </div>
       <AntdDivider />

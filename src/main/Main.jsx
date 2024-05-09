@@ -1,3 +1,4 @@
+import { RightOutlined, SyncOutlined } from '@ant-design/icons'
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import AntdButton from '../components/buttons/AntdButton'
@@ -52,6 +53,7 @@ const Main = () => {
       type='primary'
       danger={true}
       isBlock={true}
+      icon={<SyncOutlined spin />}
     />
   )
 
@@ -87,6 +89,8 @@ const Main = () => {
                     title='Learn More'
                     isBlock='true'
                     type='primary'
+                    icon={<RightOutlined />}
+                    iconPosition='end'
                   />
                 </Link>
               </AntdCard>

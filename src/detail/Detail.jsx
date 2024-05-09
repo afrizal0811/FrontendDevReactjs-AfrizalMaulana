@@ -1,6 +1,8 @@
+import { LeftOutlined } from '@ant-design/icons'
 import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import AntdAvatar from '../components/avatar/AntdAvatar'
+import AntdButton from '../components/buttons/AntdButton'
 import AntdCard from '../components/card/AntdCard'
 import AntdDivider from '../components/divider/AntdDivider'
 import AntdImage from '../components/image/AntdImage'
@@ -8,6 +10,7 @@ import AntdRate from '../components/rate/AntdRate'
 import AntdSpin from '../components/spin/AntdSpin'
 import { getApi } from '../utilities/handleApi'
 import { isEmpty } from '../utilities/isEmpty'
+
 import './styles.css'
 
 const Detail = () => {
@@ -72,6 +75,15 @@ const Detail = () => {
 
   const renderDetail = (
     <div className='detail-container'>
+      <Link to='/'>
+        <AntdButton
+          title='Back'
+          type='primary'
+          shape='round'
+          icon={<LeftOutlined />}
+          className='back-button'
+        />
+      </Link>
       <div className='detail-content'>
         {renderData}
         <AntdDivider text='Review' />

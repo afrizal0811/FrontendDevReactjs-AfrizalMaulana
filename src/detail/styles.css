@@ -30,9 +30,16 @@
   margin-bottom: 1rem;
 }
 
+.back-button {
+  margin-left: 2rem;
+}
+
 @media screen and (max-width: 767px) {
   .review-avatar {
     margin-right: 1rem;
     margin-bottom: 1rem;
+  }
+  .back-button {
+    margin-left: 0.5rem;
   }
 }
